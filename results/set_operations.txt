@@ -1,0 +1,33 @@
+High-risk sets F(e_j) at t2 (score = 1.0):
+  F(e1) = ['Bangladesh', 'Ethiopia', 'India', 'Jordan', 'Kenya', 'Morocco', 'Nepal', 'Pakistan', 'Philippines', 'Sri Lanka', 'Tunisia', 'Zambia']
+  F(e2) = ['Angola', 'Ghana', 'Kenya', 'Tunisia']
+  F(e3) = ['Jordan', 'Nepal', 'Philippines']
+  F(e4) = ['Angola', 'Egypt', 'Jordan', 'Morocco', 'Philippines', 'Tunisia']
+  F(e5) = ['Bolivia', 'Ethiopia', 'Pakistan', 'Zambia']
+  F(e6) = ['Angola', 'Bangladesh', 'Egypt', 'Ethiopia', 'Ghana', 'Nigeria', 'Pakistan', 'Tunisia', 'Zambia']
+  F(e7) = ['Jordan']
+
+Resilience complements:
+  R(e1) = ['Angola', 'Bolivia', 'Egypt', 'Ghana', 'Nigeria', 'Vietnam']
+  R(e5) = ['Angola', 'Bangladesh', 'Egypt', 'Ghana', 'India', 'Jordan', 'Kenya', 'Morocco', 'Nepal', 'Nigeria', 'Philippines', 'Sri Lanka', 'Tunisia', 'Vietnam']
+
+Decision-relevant pairwise intersections:
+  F(e1) ∩ F(e5) = ['Ethiopia', 'Pakistan', 'Zambia']
+  F(e5) ∩ F(e6) = ['Ethiopia', 'Pakistan', 'Zambia']
+  F(e1) ∩ F(e6) = ['Bangladesh', 'Ethiopia', 'Pakistan', 'Tunisia', 'Zambia']
+  F(e1) ∩ F(e7) = ['Jordan']
+  F(e3) ∩ F(e4) = ['Jordan', 'Philippines']
+  F(e4) ∩ F(e7) = ['Jordan']
+  F(e2) ∩ F(e5) = empty
+  F(e3) ∩ F(e5) = empty
+
+Priority core F(e1)∩F(e5) = ['Ethiopia', 'Pakistan', 'Zambia']
+F(e5)                     = ['Bolivia', 'Ethiopia', 'Pakistan', 'Zambia']
+Oil filter removes        = ['Bolivia']  (oil-resilient, reserve-thin)
+
+Reserve-cutoff sensitivity F(e1) ∩ F(e5^<tau):
+  tau=2.0: ['Ethiopia', 'Pakistan'] (size 2)
+  tau=2.5: ['Ethiopia', 'Pakistan', 'Zambia'] (size 3)
+  tau=3.0: ['Ethiopia', 'Pakistan', 'Zambia'] (size 3)
+  tau=3.5: ['Bangladesh', 'Ethiopia', 'Pakistan', 'Tunisia', 'Zambia'] (size 5)
+  tau=4.0: ['Bangladesh', 'Ethiopia', 'Kenya', 'Pakistan', 'Sri Lanka', 'Tunisia', 'Zambia'] (size 7)

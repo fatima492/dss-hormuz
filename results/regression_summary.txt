@@ -1,0 +1,8 @@
+Transmission regression: DEFERRED (sidelined in the manuscript).
+The manuscript reports only a qualitative transmission statement and
+specifies an identified local-projection (Jorda) successor for the
+full-year 2026 panel. No oil->CPI point estimates are claimed.
+
+This optional estimator runs only if a realised monthly panel is
+supplied at data/cpi_panel.csv (schema in data/cpi_panel_template.csv).
+No inflation values are fabricated.
