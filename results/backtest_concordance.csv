@@ -1,0 +1,19 @@
+country,in_core,distress,oil_in_Fe1,reserves_months
+Pakistan,True,deep,True,1.8
+Egypt,False,mild,False,3.6
+Sri Lanka,False,deep,True,3.5
+Bangladesh,False,mild,True,3.2
+Nepal,False,none,True,10.0
+Jordan,False,mild,True,7.0
+Ethiopia,True,deep,True,1.5
+Zambia,True,deep,True,2.3
+India,False,none,True,11.0
+Morocco,False,none,True,5.5
+Philippines,False,none,True,7.5
+Kenya,False,mild,True,3.8
+Tunisia,False,deep,True,3.1
+Ghana,False,deep,False,3.1
+Nigeria,False,mild,False,6.0
+Angola,False,mild,False,6.0
+Bolivia,False,deep,False,1.9
+Vietnam,False,none,False,3.1

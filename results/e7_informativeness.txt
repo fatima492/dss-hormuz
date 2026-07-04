@@ -1,0 +1,21 @@
+{
+  "e7_high_flags": 1,
+  "e7_elevated_flags": 7,
+  "Fe7": [
+    "Jordan"
+  ],
+  "spearman_rank_with_vs_without_e7": 0.975,
+  "core_uses_e7": false,
+  "core": [
+    "Ethiopia",
+    "Pakistan",
+    "Zambia"
+  ],
+  "verdict": "informative: raises the sole all-imported-energy flag {Jordan} but is otherwise sparse; it does not enter the financing core",
+  "F(e1)capF(e7)": [
+    "Jordan"
+  ],
+  "F(e4)capF(e7)": [
+    "Jordan"
+  ]
+}

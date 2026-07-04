@@ -1,0 +1,50 @@
+PROVISIONAL realised-outcome back-test (REALISED_H2 is a labelled placeholder).
+Permutation p-values (B=10000 label reshuffles) accompany each focal coefficient.
+
+== res_loss ~ core + pre_reserves  (R^2 = 0.765, perm p = 0.011) ==
+        term   coef  se_hc1  ci90_lo  ci90_hi
+       const  0.547   0.062    0.445    0.649
+     in_core  0.156   0.053    0.069    0.242
+pre_reserves -0.037   0.009   -0.051   -0.023
+
+== res_loss ~ core (no reserve control)  (R^2 = 0.445, perm p = 0.003) ==
+   term  coef  se_hc1  ci90_lo  ci90_hi
+  const 0.353   0.034    0.297    0.410
+in_core 0.280   0.045    0.206    0.354
+
+== infl_h2 ~ core (cleaner: inflation not in core def.)  (R^2 = 0.477, perm p = 0.001) ==
+   term  coef  se_hc1  ci90_lo  ci90_hi
+  const 4.620   0.346    4.052    5.188
+in_core 2.980   0.415    2.298    3.662
+
+== infl_h2 ~ scarring + pre_reserves  (R^2 = 0.547, perm p = 0.203) ==
+        term   coef  se_hc1  ci90_lo  ci90_hi
+       const  4.625   1.739    1.764    7.486
+    scarring  3.493   2.480   -0.587    7.573
+pre_reserves -0.330   0.100   -0.493   -0.166
+
+{
+  "core_mean_res_loss": 0.633,
+  "noncore_mean_res_loss": 0.353,
+  "res_loss_core_coef": 0.156,
+  "res_loss_core_ci90": [
+    0.069,
+    0.242
+  ],
+  "res_loss_core_permp": 0.011,
+  "res_loss_core_coef_noctrl": 0.28,
+  "res_loss_core_permp_noctrl": 0.003,
+  "infl_core_coef": 2.98,
+  "infl_core_ci90": [
+    2.298,
+    3.662
+  ],
+  "infl_core_permp": 0.001,
+  "infl_scarring_coef": 3.493,
+  "infl_scarring_ci90": [
+    -0.587,
+    7.573
+  ],
+  "infl_scarring_permp": 0.203,
+  "note": "PROVISIONAL: REALISED_H2 is a labelled placeholder, not final prints"
+}

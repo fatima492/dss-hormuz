@@ -1,0 +1,5 @@
+schedule,priority_core,ahp_top5
+baseline (t2 all on),Ethiopia;Pakistan;Zambia,PAK;TUN;ETH;ZMB;LKA
+remittance off at t2,Ethiopia;Pakistan;Zambia,TUN;PAK;ETH;ZMB;KEN
+food/gas off at t2,Ethiopia;Pakistan;Zambia,PAK;ETH;ZMB;TUN;LKA
+"only e1,e5 active",Ethiopia;Pakistan;Zambia,PAK;ETH;ZMB;BOL;LKA

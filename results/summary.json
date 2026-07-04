@@ -1,0 +1,242 @@
+{
+  "seed": 2026,
+  "n_countries": 18,
+  "ahp": {
+    "lambda_max": 7.020290364530217,
+    "CI": 0.0033817274217028035,
+    "CR": 0.002561914713411215
+  },
+  "spearman": {
+    "dashboard_vs_static": 0.8608682151099056,
+    "dashboard_vs_topsis": 0.9318885448916409
+  },
+  "priority_core": [
+    "Ethiopia",
+    "Pakistan",
+    "Zambia"
+  ],
+  "Fe5": [
+    "Bolivia",
+    "Ethiopia",
+    "Pakistan",
+    "Zambia"
+  ],
+  "oil_filter_removes": [
+    "Bolivia"
+  ],
+  "priority_core_exact_recurrence": 0.3425,
+  "set_membership_freq": {
+    "Ethiopia": 0.9995,
+    "Pakistan": 0.9885,
+    "Zambia": 0.8425,
+    "Tunisia": 0.4535,
+    "Bangladesh": 0.4045,
+    "Sri Lanka": 0.248,
+    "Kenya": 0.1145,
+    "Egypt": 0.0,
+    "Jordan": 0.0,
+    "Nepal": 0.0,
+    "Morocco": 0.0,
+    "India": 0.0,
+    "Philippines": 0.0,
+    "Ghana": 0.0,
+    "Nigeria": 0.0,
+    "Angola": 0.0,
+    "Bolivia": 0.0,
+    "Vietnam": 0.0
+  },
+  "backtest": {
+    "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "deep_distress": [
+      "Bolivia",
+      "Ethiopia",
+      "Ghana",
+      "Pakistan",
+      "Sri Lanka",
+      "Tunisia",
+      "Zambia"
+    ],
+    "core": [
+      "Ethiopia",
+      "Pakistan",
+      "Zambia"
+    ],
+    "deep_routed_elsewhere": [
+      "Bolivia",
+      "Ghana",
+      "Sri Lanka",
+      "Tunisia"
+    ]
+  },
+  "scarring_rho_sensitivity": {
+    "spearman_median": 0.9628482972136224,
+    "spearman_p05": 0.8988648090815273,
+    "spearman_min": 0.8039215686274509
+  },
+  "intercoder_reliability": {
+    "pooled_exact_agreement": 0.967,
+    "pooled_kappa": 0.949,
+    "pooled_weighted_kappa": 0.96,
+    "pooled_cells": 90,
+    "core_under_coder2": [
+      "Ethiopia",
+      "Pakistan",
+      "Zambia"
+    ],
+    "core_invariant_qualitative_recode": true
+  },
+  "external_benchmarking": {
+    "spearman": {
+      "INFORM": 0.061,
+      "EVI": 0.336,
+      "NDGAIN": -0.038
+    },
+    "core": [
+      "Ethiopia",
+      "Pakistan",
+      "Zambia"
+    ],
+    "disagreements": {
+      "INFORM": {
+        "index_topK": [
+          "Ethiopia",
+          "Nigeria",
+          "Pakistan"
+        ],
+        "core_missed_by_index": [
+          "Zambia"
+        ],
+        "index_top_not_in_core": [
+          "Nigeria"
+        ]
+      },
+      "EVI": {
+        "index_topK": [
+          "Angola",
+          "Ethiopia",
+          "Nepal"
+        ],
+        "core_missed_by_index": [
+          "Pakistan",
+          "Zambia"
+        ],
+        "index_top_not_in_core": [
+          "Angola",
+          "Nepal"
+        ]
+      },
+      "NDGAIN": {
+        "index_topK": [
+          "Angola",
+          "Ethiopia",
+          "Nigeria"
+        ],
+        "core_missed_by_index": [
+          "Pakistan",
+          "Zambia"
+        ],
+        "index_top_not_in_core": [
+          "Angola",
+          "Nigeria"
+        ]
+      }
+    }
+  },
+  "sample_composition_sensitivity": {
+    "base_core": [
+      "Ethiopia",
+      "Pakistan",
+      "Zambia"
+    ],
+    "leave_k_out_min_survival": 1.0,
+    "addin_singles_all_preserve": true,
+    "addin_pairs_preserved": "28/28"
+  },
+  "e7_informativeness": {
+    "e7_high_flags": 1,
+    "e7_elevated_flags": 7,
+    "Fe7": [
+      "Jordan"
+    ],
+    "spearman_rank_with_vs_without_e7": 0.975,
+    "core_uses_e7": false,
+    "core": [
+      "Ethiopia",
+      "Pakistan",
+      "Zambia"
+    ],
+    "verdict": "informative: raises the sole all-imported-energy flag {Jordan} but is otherwise sparse; it does not enter the financing core"
+  },
+  "e6_transfer_sensitivity": {
+    "transfer_group_base": [
+      "Bangladesh",
+      "Ethiopia",
+      "Pakistan",
+      "Tunisia",
+      "Zambia"
+    ],
+    "financing_core_base": [
+      "Ethiopia",
+      "Pakistan",
+      "Zambia"
+    ],
+    "transfer_member_survival": {
+      "Bangladesh": 0.76,
+      "Ethiopia": 0.741,
+      "Pakistan": 0.749,
+      "Tunisia": 0.742,
+      "Zambia": 0.746
+    },
+    "transfer_mean_jaccard_vs_base": 0.573,
+    "financing_core_changed_frac": 0.0,
+    "note": "e6-only perturbation: the transfer group churns while the financing core (which does not use e6) is invariant, quantifying the two-tier confidence structure"
+  },
+  "realised_backtest_provisional": {
+    "core_mean_res_loss": 0.633,
+    "noncore_mean_res_loss": 0.353,
+    "res_loss_core_coef": 0.156,
+    "res_loss_core_ci90": [
+      0.069,
+      0.242
+    ],
+    "res_loss_core_permp": 0.011,
+    "res_loss_core_coef_noctrl": 0.28,
+    "res_loss_core_permp_noctrl": 0.003,
+    "infl_core_coef": 2.98,
+    "infl_core_ci90": [
+      2.298,
+      3.662
+    ],
+    "infl_core_permp": 0.001,
+    "infl_scarring_coef": 3.493,
+    "infl_scarring_ci90": [
+      -0.587,
+      7.573
+    ],
+    "infl_scarring_permp": 0.203,
+    "note": "PROVISIONAL: REALISED_H2 is a labelled placeholder, not final prints"
+  },
+  "costing_core": {
+    "core_total_rapid_access_USDbn": 4.4
+  },
+  "figures_written": [
+    "fig_backtest.png",
+    "fig_brent.png",
+    "fig_channels.png",
+    "fig_euler.png",
+    "fig_extbench.png",
+    "fig_flowchart.png",
+    "fig_graded.png",
+    "fig_rankboot.png",
+    "fig_reserves.png",
+    "fig_scarring.png",
+    "fig_scarringlevel.png",
+    "fig_scenario.png",
+    "fig_scores.png",
+    "fig_setboot.png",
+    "fig_slope.png",
+    "fig_stages.png",
+    "fig_weights.png"
+  ]
+}

@@ -1,0 +1,179 @@
+# Dynamic, stage-indexed decision support for the 2026 Strait-of-Hormuz energy shock
+
+Reproducibility bundle for the paper:
+
+> **Routing Emergency Support in Chokepoint Energy Shocks: A Weight-Free, Stage-Indexed Decision-Support Framework for Import-Dependent Developing Economies**
+
+A single script reproduces every quantitative result, table and figure in the
+manuscript. The framework scores seven transmission channels (oil, external debt,
+Gulf remittances, food, FX reserves, inflation pass-through, gas/LNG) on a graded
+`{0, 0.5, 1}` scale across four conflict stages for **eighteen** import-dependent
+economies, then routes policy via **weight-free set operations** rather than a single
+fragile league table.
+
+---
+
+## Method at a glance
+
+- **Eighteen economies** spanning the oil-import-dependence range, so the oil filter
+  `F(e1)` genuinely *refines* the FX-reserve set `F(e5)` instead of reducing to it. The
+  core `{Pakistan, Ethiopia, Zambia}` is a **strict** subset of `F(e5)`: reserve-thin
+  but oil-resilient producers (e.g. **Bolivia**) are removed by the oil filter and
+  routed to debt relief.
+- **Scarring**: a per-channel persistence vector `rho_j` and a country
+  `scarring_score` (persistence-weighted share of blockade exposure) operationalise the
+  easing-vs-scarring distinction; the ranking is stable to `rho` perturbations
+  (median Spearman 0.96).
+- **Robustness**: rank and set-membership bootstraps, reserve-cutoff sensitivity,
+  activation-schedule invariance of the core, and a partial concordance check against
+  realised sovereign distress (precision 1.00, recall 0.43).
+- **Inter-coder reliability**: an independent second coding of the five qualitative
+  channels (`e2,e3,e4,e6,e7`); pooled exact agreement 0.97, Cohen's kappa 0.95,
+  linear-weighted kappa 0.96. The financing core is invariant to the re-coding by
+  construction (it uses only the numeric `e1,e5` anchors).
+- **External benchmarking**: the routing is compared against INFORM Risk Index 2026
+  (EC-JRC/DRMKC, April 2026), the UN-CDP Economic Vulnerability Index, and the ND-GAIN
+  Country Index vulnerability component (Notre Dame, June 2025 update); rank
+  correlations are low (Spearman 0.06 / 0.34 / -0.04), and the indices would prioritise
+  oil-resilient producers (Nigeria, Angola) the oil filter removes. NOTE: the source
+  releases are cited exactly, but the country **values** in `INFORM`/`EVI`/`NDGAIN` are
+  the authors' **approximations pending verbatim transcription from those releases**
+  and must be replaced with the published figures before submission; the qualitative
+  divergence is robust to small value changes.
+- **Sample-composition sensitivity**: leave-`k`-out (`k=1,2,3`) and add-in
+  (8 plausible importers, singly and in all pairs) leave the core intact
+  (survival 1.00; 28/28 pairs preserved). The add-in test carries the real
+  generalization weight (leave-`k`-out survival is close to definitional).
+- **e7 informativeness**: the gas/LNG channel raises one high-risk flag (Jordan),
+  Spearman rank with/without `e7` is 0.98, and the core does not use it — informative
+  but narrow, reported explicitly.
+- **e6 transfer sensitivity**: an aggressive `e6`-only perturbation churns the
+  targeted-transfer group F(e1)∩F(e6) (mean Jaccard 0.57 with baseline, member survival
+  ~74–76%) while the financing core F(e1)∩F(e5), which does not use `e6`, is unchanged
+  in 100% of draws — quantifying the two-tier confidence structure (financing core firm,
+  transfer route indicative).
+- **Provisional realised-outcome back-test**: OLS (HC1) with **permutation p-values**
+  (B=10,000, appropriate for n=18). Guards against a definitional artefact two ways:
+  the core reserve-loss coefficient survives dropping the shared pre-shock-reserve
+  control (0.16 → 0.28 months, perm p=0.011 → 0.003), and a cleaner test uses realised
+  inflation — external to the core definition — where core members show +2.98pp
+  (perm p=0.001). A residual shared-driver dependency (oil-import exposure) is noted;
+  only the pre-registered out-of-sample test fully separates it. The outcome series
+  (`REALISED_H2`) is a **clearly-labelled placeholder** to be replaced by final prints;
+  results are illustrative, not
+  validation.
+- **Auditable costing**: financing-core rapid access sized from IMF quotas
+  (RFI/RCF at 100% of quota, RST at 150%), combined ~US$4.4 bn.
+- **Transmission**: no oil→CPI point estimates are reported; an identified
+  local-projection design is specified for the full-year panel, and the optional
+  estimator runs only if a realised monthly panel is supplied.
+
+## Repository structure
+
+```
+dss-hormuz/
+├── dss_hormuz.py              # complete implementation + reproducibility (one file)
+├── README.md
+├── LICENSE                    # MIT
+├── requirements.txt
+├── .gitignore
+├── data/
+│   └── cpi_panel_template.csv # schema + structural regressors for the deferred regression
+├── figures/                   # 17 PNG figures (regenerated by dss_hormuz.py)
+└── results/                   # numerical outputs written by dss_hormuz.py
+    ├── weights.csv               scores_t2.csv              benchmarking.csv
+    ├── set_operations.txt        threshold_sensitivity.csv
+    ├── bootstrap_ranks.csv       bootstrap_set_membership.csv
+    ├── scarring_scores.csv       scarring_sensitivity.csv
+    ├── dynamics_t2_t3.csv        schedule_sensitivity.csv
+    ├── backtest_concordance.csv  regression_summary.txt
+    ├── intercoder_reliability.csv        external_benchmarking.csv
+    ├── leave_k_out.csv           addin_importers.csv        e7_informativeness.txt
+    ├── e6_transfer_sensitivity.txt
+    ├── realised_backtest_data.csv        realised_backtest_regression.txt
+    ├── costing_core.csv
+    └── summary.json
+```
+
+## Quick start
+
+```bash
+pip install -r requirements.txt
+python dss_hormuz.py
+```
+
+This regenerates the figures in `figures/` and writes all numerical results to
+`results/`. Every stochastic step is seeded (`SEED = 2026`), so the output is
+reproducible.
+
+## Headline reproducible results
+
+- AHP consistency ratio CR ≈ 0.003.
+- `F(e1) ∩ F(e5) = {Pakistan, Ethiopia, Zambia}` ⊊ `F(e5) = {+Bolivia}` — the oil
+  filter removes reserve-thin but oil-resilient Bolivia.
+- Set-membership stability: core members appear in 84–100% of `B=2000` draws; the
+  oil-resilient producers in 0%. No exact country rank is robust (Pakistan median 2,
+  interval [1,5]).
+- Scarring scores highest for the core and reserve-thin producers; lowest for
+  breadth-exposed Jordan (0.38), which eases (rank 8→18 from `t2` to `t3`); the
+  ranking is stable to ±0.2 perturbations of every `rho_j`.
+- Priority core invariant to the activation schedule; concordance check precision 1.00,
+  recall 0.43.
+- Inter-coder reliability: pooled exact agreement 0.97, Cohen's kappa 0.95,
+  linear-weighted kappa 0.96.
+- External benchmarking: Spearman rank correlation with INFORM 0.06, EVI 0.34,
+  ND-GAIN −0.04; the indices top-rank net oil producers the oil filter excludes.
+  (Index values approximate pending exact public releases.)
+- Sample composition: leave-`k`-out survival 1.00 (near-definitional); add-in core
+  preserved in 8/8 singles and 28/28 pairs (the informative generalization test).
+- e6 transfer sensitivity: under an aggressive e6-only perturbation the transfer group
+  churns (mean Jaccard 0.57, member survival ~74–76%) while the financing core is
+  unchanged in 100% of draws — quantifying the two-tier confidence structure.
+- Provisional back-test (placeholder outcomes, permutation p-values, n=18):
+  reserve-loss coefficient 0.16 months with the reserve control (perm p=0.011) and
+  0.28 without it (perm p=0.003) — not a definitional artefact; inflation-on-core
+  contrast (external outcome) +2.98pp (perm p=0.001); a residual oil-import shared
+  driver is noted, separable only by the pre-registered out-of-sample test.
+- Auditable costing: financing-core combined rapid access ≈ US$4.4 bn (100% of quota).
+
+## Integrity note on the transmission regression
+
+The reduced-form oil→CPI pass-through is **deferred by design** — no point estimates
+are claimed, so the reproducibility claim covers all reported quantitative results. The
+optional estimator in `run_regression()` runs only if a realised monthly panel is
+supplied at `data/cpi_panel.csv` (schema and structural regressors in
+`data/cpi_panel_template.csv`; fill the `dpi` column with realised inflation). No
+inflation values are fabricated.
+
+## Integrity note on the provisional back-test and external indices
+
+The realised-outcome back-test in `realised_backtest_regression()` uses the
+`REALISED_H2` dictionary, which is a **transparent, clearly-labelled placeholder**, not
+a set of final prints presented as findings. It exists so the regression runs
+end-to-end and its coefficients are reproducible. It reports **permutation p-values**
+(B=10,000, appropriate for n=18) rather than leaning on the normal approximation, and
+guards against a definitional artefact by (i) showing the reserve-loss coefficient
+survives dropping the shared pre-shock-reserve control and (ii) adding a cleaner test
+on realised inflation, which is external to the core definition. It **must** be
+replaced by the true realised H2-2026 series when they mature; the manuscript labels
+this result provisional and does not treat it as validation.
+
+Likewise, the `INFORM`, `EVI` and `NDGAIN` dictionaries used for external benchmarking
+carry values that are the authors' **approximations pending verbatim transcription from
+the exact current public releases**. The source releases themselves are now cited
+exactly — INFORM Risk Index 2026 (EC-JRC/DRMKC, published April 2026), the UN-CDP
+Economic Vulnerability Index, and the ND-GAIN Country Index vulnerability component
+(Notre Dame, June 2025 update) — with their public data portals in the code comments
+and the manuscript bibliography. The values are close to the released magnitudes and are
+sufficient to demonstrate the qualitative routing divergence (which turns on the sign of
+the disagreement, not precise ranks), but they **must** be replaced with the verbatim
+published figures before submission. No value in either the outcome or the index set is
+presented as a confirmed measurement.
+
+## Citation
+If you use this framework or code, please cite the manuscript. A BibTeX entry will be added here once publication details are finalized.
+
+
+## License
+
+MIT — see [LICENSE](LICENSE).

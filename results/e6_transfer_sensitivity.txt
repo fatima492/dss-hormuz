@@ -1,0 +1,24 @@
+{
+  "transfer_group_base": [
+    "Bangladesh",
+    "Ethiopia",
+    "Pakistan",
+    "Tunisia",
+    "Zambia"
+  ],
+  "financing_core_base": [
+    "Ethiopia",
+    "Pakistan",
+    "Zambia"
+  ],
+  "transfer_member_survival": {
+    "Bangladesh": 0.76,
+    "Ethiopia": 0.741,
+    "Pakistan": 0.749,
+    "Tunisia": 0.742,
+    "Zambia": 0.746
+  },
+  "transfer_mean_jaccard_vs_base": 0.573,
+  "financing_core_changed_frac": 0.0,
+  "note": "e6-only perturbation: the transfer group churns while the financing core (which does not use e6) is invariant, quantifying the two-tier confidence structure"
+}
