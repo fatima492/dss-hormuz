@@ -45,18 +45,18 @@ fragile league table.
   (survival 1.00; 28/28 pairs preserved). The add-in test carries the real
   generalization weight (leave-`k`-out survival is close to definitional).
 - **e7 informativeness**: the gas/LNG channel raises one high-risk flag (Jordan),
-  Spearman rank with/without `e7` is 0.98, and the core does not use it — informative
+  Spearman rank with/without `e7` is 0.98, and the core does not use it informative
   but narrow, reported explicitly.
 - **e6 transfer sensitivity**: an aggressive `e6`-only perturbation churns the
   targeted-transfer group F(e1)∩F(e6) (mean Jaccard 0.57 with baseline, member survival
   ~74–76%) while the financing core F(e1)∩F(e5), which does not use `e6`, is unchanged
-  in 100% of draws — quantifying the two-tier confidence structure (financing core firm,
+  in 100% of draws quantifying the two-tier confidence structure (financing core firm,
   transfer route indicative).
 - **Provisional realised-outcome back-test**: OLS (HC1) with **permutation p-values**
   (B=10,000, appropriate for n=18). Guards against a definitional artefact two ways:
   the core reserve-loss coefficient survives dropping the shared pre-shock-reserve
   control (0.16 → 0.28 months, perm p=0.011 → 0.003), and a cleaner test uses realised
-  inflation — external to the core definition — where core members show +2.98pp
+  inflation external to the core definition where core members show +2.98pp
   (perm p=0.001). A residual shared-driver dependency (oil-import exposure) is noted;
   only the pre-registered out-of-sample test fully separates it. The outcome series
   (`REALISED_H2`) is a **clearly-labelled placeholder** to be replaced by final prints;
@@ -109,7 +109,7 @@ reproducible.
 ## Headline reproducible results
 
 - AHP consistency ratio CR ≈ 0.003.
-- `F(e1) ∩ F(e5) = {Pakistan, Ethiopia, Zambia}` ⊊ `F(e5) = {+Bolivia}` — the oil
+- `F(e1) ∩ F(e5) = {Pakistan, Ethiopia, Zambia}` ⊊ `F(e5) = {+Bolivia}` the oil
   filter removes reserve-thin but oil-resilient Bolivia.
 - Set-membership stability: core members appear in 84–100% of `B=2000` draws; the
   oil-resilient producers in 0%. No exact country rank is robust (Pakistan median 2,
@@ -128,17 +128,17 @@ reproducible.
   preserved in 8/8 singles and 28/28 pairs (the informative generalization test).
 - e6 transfer sensitivity: under an aggressive e6-only perturbation the transfer group
   churns (mean Jaccard 0.57, member survival ~74–76%) while the financing core is
-  unchanged in 100% of draws — quantifying the two-tier confidence structure.
+  unchanged in 100% of draws quantifying the two-tier confidence structure.
 - Provisional back-test (placeholder outcomes, permutation p-values, n=18):
   reserve-loss coefficient 0.16 months with the reserve control (perm p=0.011) and
-  0.28 without it (perm p=0.003) — not a definitional artefact; inflation-on-core
+  0.28 without it (perm p=0.003) not a definitional artefact; inflation-on-core
   contrast (external outcome) +2.98pp (perm p=0.001); a residual oil-import shared
   driver is noted, separable only by the pre-registered out-of-sample test.
 - Auditable costing: financing-core combined rapid access ≈ US$4.4 bn (100% of quota).
 
 ## Integrity note on the transmission regression
 
-The reduced-form oil→CPI pass-through is **deferred by design** — no point estimates
+The reduced-form oil→CPI pass-through is **deferred by design** no point estimates
 are claimed, so the reproducibility claim covers all reported quantitative results. The
 optional estimator in `run_regression()` runs only if a realised monthly panel is
 supplied at `data/cpi_panel.csv` (schema and structural regressors in
@@ -161,9 +161,9 @@ this result provisional and does not treat it as validation.
 Likewise, the `INFORM`, `EVI` and `NDGAIN` dictionaries used for external benchmarking
 carry values that are the authors' **approximations pending verbatim transcription from
 the exact current public releases**. The source releases themselves are now cited
-exactly — INFORM Risk Index 2026 (EC-JRC/DRMKC, published April 2026), the UN-CDP
+exactly INFORM Risk Index 2026 (EC-JRC/DRMKC, published April 2026), the UN-CDP
 Economic Vulnerability Index, and the ND-GAIN Country Index vulnerability component
-(Notre Dame, June 2025 update) — with their public data portals in the code comments
+(Notre Dame, June 2025 update) with their public data portals in the code comments
 and the manuscript bibliography. The values are close to the released magnitudes and are
 sufficient to demonstrate the qualitative routing divergence (which turns on the sign of
 the disagreement, not precise ranks), but they **must** be replaced with the verbatim
