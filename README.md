@@ -176,4 +176,4 @@ If you use this framework or code, please cite the manuscript. A BibTeX entry wi
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT see [LICENSE](LICENSE).
